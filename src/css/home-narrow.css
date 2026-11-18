@@ -1,0 +1,110 @@
+@media (max-width: 1200px) {
+  .keys {
+    display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .row {
+    grid-template-columns: 2.4rem 4rem minmax(0, 1fr) 4.2rem 8rem;
+  }
+  .row .meter {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .rig,
+  .under {
+    width: 100%;
+  }
+  .mpc__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pads {
+    order: -1;
+    gap: 2cqw;
+  }
+  .pads .pad {
+    border-radius: 2cqw;
+  }
+  .well {
+    border-radius: 2.5cqw;
+    padding: 0.55cqw;
+  }
+  .keys {
+    display: none;
+  }
+  .wave {
+    height: 9cqw;
+  }
+  .lcd {
+    font-size: max(0.8rem, 2cqw);
+  }
+  .knob {
+    width: 7cqw;
+  }
+  .knob small {
+    font-size: max(0.55rem, 1.4cqw);
+  }
+}
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 4.6rem;
+    justify-content: flex-start;
+  }
+  .chrome {
+    padding: 6px;
+    border-radius: 20px;
+  }
+  .chrome:after,
+  .chrome__env {
+    padding: 6px;
+    border-radius: 20px;
+  }
+  .chrome:before {
+    border-radius: 17px;
+  }
+  .mpc {
+    border-radius: 15px;
+    padding: 4cqw 3.5cqw 5cqw;
+  }
+  .inlay {
+    height: 9px;
+    margin-bottom: 4cqw;
+  }
+  .under {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .keys {
+    display: none;
+  }
+  .controls {
+    gap: 4cqw;
+    margin-top: 4cqw;
+  }
+  .row {
+    grid-template-columns: 3.4rem minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .row__rank {
+    display: none;
+  }
+  .row .chip {
+    display: none;
+  }
+  .row__s {
+    font-size: 1.9rem;
+  }
+  .row__t b {
+    font-size: 1.5rem;
+  }
+  .sorts {
+    gap: 0.4rem;
+    padding: 0.55rem 0.75rem;
+  }
+  .fb {
+    min-width: 4.6rem;
+    padding: 0 0.6rem;
+  }
+}

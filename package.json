@@ -1,0 +1,23 @@
+{
+  "name": "jbtalksrap",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "check": "prettier --check . && eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@fontsource-variable/anybody": "^5.2.0",
+    "@fontsource-variable/newsreader": "^5.2.0",
+    "@fontsource/ibm-plex-mono": "^5.2.0",
+    "@fontsource/sedgwick-ave-display": "^5.3.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "sharp": "^0.34.0"
+  }
+}
