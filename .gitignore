@@ -5,3 +5,4 @@ site/
 *.log
 .env*
 CLAUDE.md
+docs/old-site.jpg
