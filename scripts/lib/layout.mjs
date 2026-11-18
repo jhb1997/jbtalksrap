@@ -1,6 +1,6 @@
-import { SITE } from '../../content/site.mjs';
+import { SITE } from '../../content/reviews.mjs';
 import { attr, esc } from './util.mjs';
-import { buffPatch, footCracks } from './slab.mjs';
+import { buffPatch, footCracks } from './floor.mjs';
 
 export function makeLayout(css) {
   const head = ({

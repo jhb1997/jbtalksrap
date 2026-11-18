@@ -1,6 +1,6 @@
-import { SITE } from '../../content/site.mjs';
+import { SITE } from '../../content/reviews.mjs';
 import { attr, esc, meter, chip, cover, coverSet, KEYS } from './util.mjs';
-import { floor, buffPatch } from './slab.mjs';
+import { floor, buffPatch } from './floor.mjs';
 
 export function homePage({ L, byScore, featured, code, layout }) {
   const { head, header, footer } = layout;

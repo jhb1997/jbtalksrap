@@ -1,4 +1,4 @@
-import { SITE, ART } from '../../content/site.mjs';
+import { SITE, ART } from '../../content/reviews.mjs';
 import { attr, esc, meter, chip, cover, coverSet, COVER_W, reEsc } from './util.mjs';
 
 export function reviewPages({ L, artSize, artSets, code, layout }) {

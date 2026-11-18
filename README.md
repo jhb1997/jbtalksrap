@@ -21,17 +21,17 @@ npx serve site   # preview at http://localhost:3000
 ## Structure
 
 ```
-content/          review text (reviews/*.md), titles and dates (manifest.json), scores and per-page data (site.mjs)
+content/          review text (reviews/*.md), titles and dates (manifest.json), scores, alt text and pictures (reviews.mjs)
 media/            source images: album covers, art beside the text (with CREDITS.md), textures, the share image
-src/css/          site.css on every page, home-*.css, review.css, lost.css (404)
+src/css/          site.css on every page, home-*.css, review.css, 404.css
 src/js/           site.js on every page, home.js (the sampler and the Archive), review.js (reading progress)
 scripts/build.mjs reads content and media, writes site/: pages, resized images, fonts, share images, sitemap
-scripts/lib/      the build's parts: content, images, assets, layout, home, review, 404, slab (the drawn floor)
+scripts/lib/      the build's parts: content, images, assets, layout, home, review, 404, floor (the drawn concrete under the sampler)
 site/             build output (not committed)
 ```
 
-Review text is published verbatim. Scores, pull quotes and pictures live in `content/site.mjs`; the build fails if a
-quote isn't word for word in its review.
+Review text is published verbatim from `content/reviews/*.md`. Scores, alt text and the pictures beside each review
+live in `content/reviews.mjs`; the build checks every review against `manifest.json` and fails on a mismatch.
 
 ## Hosting
 

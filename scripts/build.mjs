@@ -1,7 +1,7 @@
 import { writeFile, readdir, rm, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { SITE } from '../content/site.mjs';
-import { OUT, A } from './lib/paths.mjs';
+import { SITE } from '../content/reviews.mjs';
+import { OUT, ASSETS } from './lib/paths.mjs';
 import { COVER_W } from './lib/util.mjs';
 import { loadReviews } from './lib/content.mjs';
 import { buildImages } from './lib/images.mjs';
@@ -9,14 +9,14 @@ import { buildAssets } from './lib/assets.mjs';
 import { makeLayout } from './lib/layout.mjs';
 import { homePage } from './lib/home.mjs';
 import { reviewPages } from './lib/review.mjs';
-import { lostPage } from './lib/lost.mjs';
+import { notFoundPage } from './lib/not-found.mjs';
 
 const { L, byScore, featured } = await loadReviews();
 const { artSize, artSets } = await buildImages(L);
 const { code, css } = await buildAssets();
 const ctx = { L, byScore, featured, artSize, artSets, code, layout: makeLayout(css) };
 
-const pages = new Map([['index.html', homePage(ctx)], ['404.html', lostPage(ctx)], ...reviewPages(ctx)]);
+const pages = new Map([['index.html', homePage(ctx)], ['404.html', notFoundPage(ctx)], ...reviewPages(ctx)]);
 for (const f of await readdir(OUT)) if (f.endsWith('.html') && !pages.has(f)) await rm(path.join(OUT, f));
 for (const [f, html] of pages) await writeFile(path.join(OUT, f), html);
 
@@ -37,11 +37,11 @@ const keepArt = new Set(
     ...set.split(', ').map(s => path.basename(s.split(' ')[0])),
   ]),
 );
-for (const f of await readdir(path.join(A, 'img/art')))
-  if (!keepArt.has(f)) await rm(path.join(A, 'img/art', f));
+for (const f of await readdir(path.join(ASSETS, 'img/art')))
+  if (!keepArt.has(f)) await rm(path.join(ASSETS, 'img/art', f));
 const keepImg = new Set(L.flatMap(l => COVER_W.map(w => `${l.slug}-${w}.webp`)));
-for (const f of await readdir(path.join(A, 'img/covers')))
-  if (!keepImg.has(f)) await rm(path.join(A, 'img/covers', f));
+for (const f of await readdir(path.join(ASSETS, 'img/covers')))
+  if (!keepImg.has(f)) await rm(path.join(ASSETS, 'img/covers', f));
 
 async function du(dir) {
   let t = 0;

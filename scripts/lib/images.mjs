@@ -3,15 +3,15 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { ART } from '../../content/site.mjs';
-import { A, OUT, MEDIA } from './paths.mjs';
+import { ART } from '../../content/reviews.mjs';
+import { ASSETS, OUT, MEDIA } from './paths.mjs';
 import { newer, cover, COVER_W } from './util.mjs';
 
 export async function buildImages(L) {
-  await mkdir(path.join(A, 'fonts'), { recursive: true });
-  await mkdir(path.join(A, 'img/covers'), { recursive: true });
-  await mkdir(path.join(A, 'img/art'), { recursive: true });
-  await mkdir(path.join(A, 'og'), { recursive: true });
+  await mkdir(path.join(ASSETS, 'fonts'), { recursive: true });
+  await mkdir(path.join(ASSETS, 'img/covers'), { recursive: true });
+  await mkdir(path.join(ASSETS, 'img/art'), { recursive: true });
+  await mkdir(path.join(ASSETS, 'og'), { recursive: true });
   const imgJobs = [];
   const webp = (src, dst, w, opts = {}) =>
     imgJobs.push(
@@ -28,9 +28,11 @@ export async function buildImages(L) {
         square: true,
         q: w > 500 ? 80 : 78,
       });
-  webp(path.join(MEDIA, 'textures/brushed.jpg'), path.join(A, 'img/brushed.webp'), 1600, { q: 72 });
-  webp(path.join(MEDIA, 'textures/brushed.jpg'), path.join(A, 'img/brushed-phone.webp'), 1000, { q: 72 });
-  webp(path.join(MEDIA, 'textures/pave.jpg'), path.join(A, 'img/pave.webp'), 300, { q: 80 });
+  webp(path.join(MEDIA, 'textures/brushed.jpg'), path.join(ASSETS, 'img/brushed.webp'), 1600, { q: 72 });
+  webp(path.join(MEDIA, 'textures/brushed.jpg'), path.join(ASSETS, 'img/brushed-phone.webp'), 1000, {
+    q: 72,
+  });
+  webp(path.join(MEDIA, 'textures/pave.jpg'), path.join(ASSETS, 'img/pave.webp'), 300, { q: 80 });
   const artNames = new Set(
     Object.values(ART).flatMap(o =>
       Object.values(o)
@@ -52,17 +54,17 @@ export async function buildImages(L) {
     const src = (artSrc[name] = ['.jpg', '.png']
       .map(e => path.join(MEDIA, 'art', name + e))
       .find(f => existsSync(f)));
-    webp(src, path.join(A, 'img/art', name + '.webp'), wide ? 1800 : 900, { q: 80 });
+    webp(src, path.join(ASSETS, 'img/art', name + '.webp'), wide ? 1800 : 900, { q: 80 });
   }
   await Promise.all(imgJobs);
   imgJobs.length = 0;
   const artSize = {},
     artSets = {};
   for (const name of artNames) {
-    const m = await sharp(path.join(A, 'img/art', name + '.webp')).metadata();
+    const m = await sharp(path.join(ASSETS, 'img/art', name + '.webp')).metadata();
     artSize[name] = [m.width, m.height];
     const ws = ART_W[artWide[name] ? 'wide' : 'note'].filter(w => w < m.width);
-    for (const w of ws) webp(artSrc[name], path.join(A, 'img/art', `${name}-${w}.webp`), w, { q: 80 });
+    for (const w of ws) webp(artSrc[name], path.join(ASSETS, 'img/art', `${name}-${w}.webp`), w, { q: 80 });
     artSets[name] = [
       ...ws.map(w => `assets/img/art/${name}-${w}.webp ${w}w`),
       `assets/img/art/${name}.webp ${m.width}w`,
@@ -113,9 +115,9 @@ export async function buildImages(L) {
       .jpeg({ quality: 82, mozjpeg: true })
       .toFile(dst);
   }
-  for (const l of L) await og(path.join(A, 'og', l.slug + '.jpg'), [l.slug]);
+  for (const l of L) await og(path.join(ASSETS, 'og', l.slug + '.jpg'), [l.slug]);
 
-  await copyFile(path.join(MEDIA, 'og-home.jpg'), path.join(A, 'og', 'home.jpg'));
+  await copyFile(path.join(MEDIA, 'og-home.jpg'), path.join(ASSETS, 'og', 'home.jpg'));
   {
     const W = 600,
       H = 60,
@@ -135,7 +137,7 @@ export async function buildImages(L) {
       }
     await sharp(px, { raw: { width: W, height: H, channels: 4 } })
       .png()
-      .toFile(path.join(A, 'img/spray-sweep.png'));
+      .toFile(path.join(ASSETS, 'img/spray-sweep.png'));
   }
   return { artSize, artSets };
 }

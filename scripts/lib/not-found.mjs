@@ -1,6 +1,6 @@
-import { SITE } from '../../content/site.mjs';
+import { SITE } from '../../content/reviews.mjs';
 
-export function lostPage({ code, layout }) {
+export function notFoundPage({ code, layout }) {
   const { head, spray } = layout;
   return `${head({
     title: `Page not found · ${SITE.name}`,
@@ -8,7 +8,7 @@ export function lostPage({ code, layout }) {
     url: '404.html',
     image: 'assets/og/home.jpg',
     type: 'website',
-    sheet: 'lost.css',
+    sheet: '404.css',
     plate: false,
     preload: ['assets/fonts/newsreader.woff2'],
     extra: '<meta name="robots" content="noindex">\n',

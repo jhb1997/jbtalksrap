@@ -8,14 +8,13 @@ export const SITE = {
 
 export const FEATURED = '05';
 
-export const LOTS = [
+export const REVIEWS = [
   {
     n: '01',
     slug: 'what-s-in-a-name-the-top-10-most-creative-band-names-of-all-time',
     album: 'A Written Testimony',
     artist: 'Jay Electronica',
     score: '8.1',
-    quote: 'The man is a historian as much as a rapper.',
     alt: 'trees reflected in still water',
     summary:
       'After a 12-year wait, Jay Electronica’s debut plays like a joint album with Jay Z: Islamic poetry, Black history and complex rhyme.',
@@ -26,7 +25,6 @@ export const LOTS = [
     album: 'The Allegory',
     artist: 'Royce da 5’9',
     score: '8.6',
-    quote: 'He outraps all of them… easily.',
     alt: 'a burned two-dollar bill',
     summary:
       'Royce da 5’9 returns with a poetic 22-song project on race, drugs and violence in America, with history lessons in every bar.',
@@ -37,7 +35,6 @@ export const LOTS = [
     album: 'New Toronto 3',
     artist: 'Tory Lanez',
     score: '6.9',
-    quote: 'Either way, Tory Lanez is here to stay.',
     alt: 'Tory Lanez holding a child',
     summary:
       'Tory Lanez, newly mainstream after Quarantine Radio, raps guns, girls and diamonds on a jaded but brilliant tape that leans on borrowed flows.',
@@ -48,7 +45,6 @@ export const LOTS = [
     album: 'Blame It on Baby',
     artist: 'DaBaby',
     score: '7.0',
-    quote: 'This song absolutely slaps.',
     alt: 'DaBaby in a face mask',
     summary:
       'DaBaby answers his critics with melody, triplet flows and introspection: a cohesive third album from an artist, not just a rapper.',
@@ -59,8 +55,6 @@ export const LOTS = [
     album: 'Pray for Paris',
     artist: 'Westside Gunn',
     score: '9.1',
-    quote:
-      'Pray for Paris is plated like a five star dish, presented like Paris Fashion Week, and created as a symbol of hardships and royalty.',
     alt: 'a repainted Caravaggio',
     summary:
       'Westside Gunn’s Paris-inspired magnum opus: Virgil Abloh cover art, elite beats and features, grit plated like a five-star dish.',
@@ -71,8 +65,6 @@ export const LOTS = [
     album: 'LULU',
     artist: 'Conway the Machine',
     score: '6.5',
-    quote:
-      'The beats have tones of death, royalty, and violence, and that all fits perfectly with Conway’s image.',
     alt: 'a great white shark',
     summary:
       'Conway the Machine and the Alchemist’s 7-song LULU: dark, grimy street rap over menacing beats, if lighter on wordplay and replay value.',
@@ -83,7 +75,6 @@ export const LOTS = [
     album: 'The Versace Tape',
     artist: 'Boldy James',
     score: '7.3',
-    quote: 'It’s real, and it’s vulnerable, and it’s understated.',
     alt: 'Boldy James in Versace',
     summary:
       'Boldy James and Jay Versace’s short, sweet surprise: specific, understated Detroit street tales from one of rap’s most underrated lyricists.',
@@ -94,7 +85,6 @@ export const LOTS = [
     album: 'From King to a God',
     artist: 'Conway the Machine',
     score: '7.8',
-    quote: 'There are no skips, he impresses with some of the most clever bars of the year',
     alt: 'Conway with a chrome crown',
     summary:
       'Conway the Machine’s Shady Records debut is his best yet: sharper flows, star producers, no skips and some of the year’s cleverest bars.',
@@ -105,7 +95,6 @@ export const LOTS = [
     album: 'Who Made The Sunshine',
     artist: 'Westside Gunn',
     score: '7.1',
-    quote: 'What we hadn’t realized is that Westside Gunn may just be the best A&R in rap.',
     alt: 'a child’s crayon drawing',
     summary:
       'Westside Gunn plays A&R on a well-curated Shady Records debut full of reunions, fresh sounds and room for the whole Griselda family.',
@@ -116,7 +105,6 @@ export const LOTS = [
     album: 'Burden of Proof',
     artist: 'Benny the Butcher',
     score: '8.7',
-    quote: 'This album is New York.',
     alt: 'Benny the Butcher, eyes blurred',
     summary:
       'Benny the Butcher makes his case for best in the game over Hit-Boy’s soulful, menacing beats: a precise revival of 2000s New York grit.',
@@ -127,7 +115,6 @@ export const LOTS = [
     album: 'La Maquina',
     artist: 'Conway the Machine',
     score: '7.7',
-    quote: 'It is the kind of track that plays in your head, stuck to your bones.',
     alt: 'a mansion seen from above',
     summary:
       'An all-star producer lineup takes Conway the Machine past the “too grimy” critique on a 50-minute album that still hits like classic Griselda.',
@@ -138,7 +125,6 @@ export const LOTS = [
     album: 'Utopia',
     artist: 'Travis Scott',
     score: '8.2',
-    quote: 'Any moment can be utopic',
     alt: 'Travis Scott in near darkness',
     summary:
       'Travis Scott’s most experimental album treats utopia as a fleeting moment, not a place: bold sound, shifting flows, a crowded feature list.',
